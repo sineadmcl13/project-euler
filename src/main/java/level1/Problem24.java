@@ -2,8 +2,6 @@ package level1;
 
 import functions.Permutations;
 
-import java.util.List;
-
 /**
  * https://projecteuler.net/problem=24
  **/

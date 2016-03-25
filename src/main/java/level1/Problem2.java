@@ -2,12 +2,14 @@ package level1;
 
 /**
  * https://projecteuler.net/problem=2
- *
  * */
 public class Problem2 {
 
     public static void main (String [] args){
+        System.out.println(problem2());
+    }
 
+    public static int problem2(){
         int a = 1;
         int b = 2;
         int c = 3;
@@ -24,7 +26,6 @@ public class Problem2 {
 
         }while(c<4000000);
 
-        System.out.println(sum);
+        return sum;
     }
-
 }

@@ -8,7 +8,10 @@ import functions.Factors;
 public class Problem3 {
 
     public static void main(String [] args){
+        System.out.println(problem3());
+    }
 
+    public static long problem3(){
         long num = 600851475143L;
         long maxPrime = 0;
         for (int i = 2; i <= Math.sqrt(num); i++){
@@ -22,10 +25,8 @@ public class Problem3 {
             }
         }
 
-        System.out.println(maxPrime);
+        return maxPrime;
     }
-
-
 
 
 }

@@ -1,0 +1,18 @@
+
+apply plugin: 'java'
+apply plugin: 'idea'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Test libs
+    testCompile('junit:junit:4.4')
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.10'
+}
+
+

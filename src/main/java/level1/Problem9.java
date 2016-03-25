@@ -7,7 +7,11 @@ package level1;
 public class Problem9 {
 
     public static void main(String [] args){
+        System.out.println(problem9());
+    }
 
+
+    public static long problem9(){
         outer:
         for(int a = 1; ; a++){
             inner:
@@ -15,17 +19,15 @@ public class Problem9 {
                 double c = Math.sqrt((a*a)+(b*b));
                 if(c==(int)c){
                     if(a+b+c==1000){
-                        System.out.println(a+"+"+b+"="+c);
-
                         long ans = a*b*(int)c;
-                        System.out.println(ans);
+                        return ans;
 
-                        break outer;
                     }
                 }
 
-                if(a+b+c>1000)
+                if(a+b+c>1000){
                     break inner;
+                }
 
             }
         }

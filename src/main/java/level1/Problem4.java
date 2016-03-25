@@ -8,7 +8,11 @@ import functions.Permutations;
 public class Problem4 {
 
     public static void main(String [] args){
+        System.out.print(problem4());
+    }
 
+
+    public static int problem4(){
         int max=0;
 
         outer:
@@ -19,8 +23,8 @@ public class Problem4 {
                 }
             }
         }
-        System.out.print(max);
-    }
 
+        return max;
+    }
 
 }
