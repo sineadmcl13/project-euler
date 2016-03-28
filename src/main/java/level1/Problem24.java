@@ -10,8 +10,11 @@ public class Problem24 {
 
 	
 	public static void main(String [] args){
+		System.out.println(problem24());
+	}
+	
 
-		long startTime = System.currentTimeMillis();
+	public static String problem24(){
 
 		char [] numbers = {0,1,2,3,4,5,6,7,8,9};
 
@@ -19,15 +22,12 @@ public class Problem24 {
 			Permutations.nextPermutation(numbers);
 		}
 
+		String num = "";
 		for (char j : numbers){
-			System.out.print((int)j);
+			num+=(int)j;
 		}
-		System.out.println();
+		return num;
 
-		long endTime   = System.currentTimeMillis();
-		long totalTime = endTime - startTime;
-		System.out.println(totalTime*0.001+" secs");
 	}
-	
-	
+
 }

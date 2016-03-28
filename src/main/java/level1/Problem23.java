@@ -10,47 +10,61 @@ import java.util.ArrayList;
 
 public class Problem23 {
 
+    private static int maxNum = 28123;
+
 	public static void main(String [] args){
+        System.out.println(problem23());
+    }
 
-		//holds the list of abundant numbers
-		ArrayList<Integer> listOfAbundants = new ArrayList<Integer>();
-		
-		//holds the numbers that can't be written as the sum of two abundant numbers
-		ArrayList<Integer> notSumOfAbundants = new ArrayList<Integer>();
-		
-		for (int i=11; i<28123; i++){
-			ArrayList<Integer> factors = Factors.returnFactors(i);
-			int sumOfFactors=0;
-			for(long j : factors){
-				sumOfFactors+=j;
-			}
-			if(sumOfFactors>i){
-				listOfAbundants.add(i);
-			}
-		}
-		
-		
-		//for each number under 28123 check if it can be written as the sum as two abundant sums
-		checkNumber:
-		for (int i = 28123; i >0; i--){
-			//iterate though list of abundant numbers
-			//check if i - abundant number = another abundant number in list
-			//if it does then it can be written as the sum of 2 abundant numbers
-			for(int j: listOfAbundants){
-				if(listOfAbundants.contains(i-j)){
-					continue checkNumber;
-				}			
-			}
-			notSumOfAbundants.add(i);						
-		}
-			
-		int sum = 0;
-		for(int i: notSumOfAbundants){
-			sum +=i;
-		}
-		
-		System.out.println(sum);
 
-	}
-	
+    public static int problem23(){
+
+        boolean [] listOfAbundants = findAbundantNums();
+        boolean [] sumOfAbundants = new boolean[maxNum];
+
+
+        //for each number under 28123 check if it can be written as the sum as two abundant sums
+        for(int i=1; i<maxNum; i++){
+
+            if(listOfAbundants[i]){
+
+                for(int j=i; j+i<maxNum; j++){
+
+                    if(listOfAbundants[j]){
+                        sumOfAbundants[i+j]=true;
+                    }
+
+                }
+
+            }
+        }
+
+        int sum = 0;
+        for(int i= 0; i<sumOfAbundants.length; i++){
+            if(!sumOfAbundants[i]){
+                sum +=i;
+            }
+        }
+
+        return sum;
+    }
+
+
+    public static boolean[] findAbundantNums(){
+        boolean [] listOfAbundants = new boolean[maxNum];
+
+        for (int i=11; i<maxNum; i++){
+            ArrayList<Integer> factors = Factors.returnFactors(i);
+            int sumOfFactors=0;
+            for(long j : factors){
+                sumOfFactors+=j;
+            }
+            if(sumOfFactors>i){
+                listOfAbundants[i]=true;
+            }
+        }
+
+        return listOfAbundants;
+
+    }
 }

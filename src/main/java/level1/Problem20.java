@@ -9,16 +9,22 @@ import java.math.BigInteger;
 public class Problem20 {
 
 	public static void main (String [] args){
-		BigInteger factorial= new BigInteger("1");
+        System.out.println(problem20());
+    }
 
-		Integer sum= 0;
-		for(Integer i=1; i <=100; i++){
-			factorial= factorial.multiply(new BigInteger(i.toString()));
-		}
-		
-		for(int i = 0; i <factorial.toString().length(); i++){
-			sum += Integer.parseInt(factorial.toString().substring(i, i+1));
-		}
-		System.out.println(sum);
-	}
+	public static int problem20(){
+        BigInteger factorial= BigInteger.ONE;
+
+        int sum= 0;
+        for(int i=1; i <=100; i++){
+            factorial= factorial.multiply(BigInteger.valueOf(i));
+        }
+
+        for(int i = 0; i <factorial.toString().length(); i++){
+            sum += Integer.parseInt(factorial.toString().substring(i, i+1));
+        }
+        return sum;
+
+    }
+
 }

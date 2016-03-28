@@ -55,7 +55,7 @@ public class LevelOneTests {
         Problem6 test = new Problem6();
         BigInteger result = test.problem6();
 
-        assertEquals(new BigInteger("25164150"), result);
+        assertEquals(BigInteger.valueOf(25164150), result);
     }
 
     @Test
@@ -88,6 +88,126 @@ public class LevelOneTests {
         long result = test.problem10();
 
         assertEquals(142913828922L, result);
+    }
+
+    @Test
+    public void problem11() {
+        Problem11 test = new Problem11();
+        BigInteger result = test.problem11();
+
+        assertEquals(BigInteger.valueOf(70600674), result);
+    }
+
+    @Test
+    public void problem12() {
+        Problem12 test = new Problem12();
+        long result = test.problem12();
+
+        assertEquals(76576500, result);
+    }
+
+    @Test
+    public void problem13() {
+        Problem13 test = new Problem13();
+        String result = test.problem13();
+
+        assertEquals("5537376230", result);
+    }
+
+    @Test
+    public void problem14() {
+        Problem14 test = new Problem14();
+        int result = test.problem14();
+
+        assertEquals(837799, result);
+    }
+
+    @Test
+    public void problem15() {
+        Problem15 test = new Problem15();
+        BigInteger result = test.problem15();
+
+        assertEquals(BigInteger.valueOf(137846528820L), result);
+    }
+
+    @Test
+    public void problem16() {
+        Problem16 test = new Problem16();
+        int result = test.problem16();
+
+        assertEquals(1366, result);
+    }
+
+    @Test
+    public void problem17() {
+        Problem17 test = new Problem17();
+        int result = test.problem17();
+
+        assertEquals(21124, result);
+    }
+
+    @Test
+    public void problem18() {
+        Problem18 test = new Problem18();
+        int result = test.problem18();
+
+        assertEquals(1074, result);
+    }
+
+    @Test
+    public void problem19() {
+        Problem19 test = new Problem19();
+        int result = test.problem19();
+
+        assertEquals(171, result);
+    }
+
+    @Test
+    public void problem20() {
+        Problem20 test = new Problem20();
+        int result = test.problem20();
+
+        assertEquals(648, result);
+    }
+
+    @Test
+    public void problem21() {
+        Problem21 test = new Problem21();
+        int result = test.problem21();
+
+        assertEquals(31626, result);
+    }
+
+    @Test
+    public void problem22() {
+        Problem22 test = new Problem22();
+        BigInteger result = test.problem22();
+
+        assertEquals(BigInteger.valueOf(871198282), result);
+    }
+
+    @Test
+    public void problem23() {
+        Problem23 test = new Problem23();
+        int result = test.problem23();
+
+        assertEquals(4179871, result);
+    }
+
+    @Test
+    public void problem24() {
+        Problem24 test = new Problem24();
+        String result = test.problem24();
+
+        assertEquals("2783915460", result);
+    }
+
+    @Test
+    public void problem25() {
+        Problem25 test = new Problem25();
+        int result = test.problem25();
+
+        assertEquals(4782, result);
     }
 
 

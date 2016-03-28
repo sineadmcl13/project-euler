@@ -12,7 +12,11 @@ import java.math.BigInteger;
 public class Problem11 {
 
     public static void main(String [] args){
+        System.out.println(problem11());
+    }
 
+
+    public static BigInteger problem11(){
         String [][] numberGrid = generateNumberGrid();
 
         BigInteger rightLeft = generateMaxLeftRightNum(numberGrid);
@@ -20,7 +24,7 @@ public class Problem11 {
         BigInteger topLeftDiagonal = generateTopLeftDiagonal(numberGrid);
         BigInteger bottomLeftDiagonal = generateBottomLeftDiagonal(numberGrid);
 
-        BigInteger maxProduct = new BigInteger("0");
+        BigInteger maxProduct = BigInteger.ZERO;
 
         if(maxProduct.compareTo(rightLeft)==-1)
             maxProduct=rightLeft;
@@ -31,11 +35,8 @@ public class Problem11 {
         if(maxProduct.compareTo(bottomLeftDiagonal)==-1)
             maxProduct=bottomLeftDiagonal;
 
-
-        System.out.println(maxProduct);
-
+        return maxProduct;
     }
-
 
 
     public static String[][] generateNumberGrid(){
@@ -56,7 +57,7 @@ public class Problem11 {
 
 
     public static BigInteger generateMaxLeftRightNum(String [][] numberGrid){
-        BigInteger maxNum = new BigInteger("0");
+        BigInteger maxNum = BigInteger.ZERO;
 
         for(int i =0; i<numberGrid.length; i++){
 
@@ -73,7 +74,7 @@ public class Problem11 {
     }
 
     public static BigInteger generateMaxUpDownNum(String [][] numberGrid){
-        BigInteger maxNum = new BigInteger("0");
+        BigInteger maxNum = BigInteger.ZERO;
 
         for(int i =0; i<=16; i++){
             for(int j =0; j<numberGrid[0].length; j++){
@@ -90,7 +91,7 @@ public class Problem11 {
     }
 
     public static BigInteger generateTopLeftDiagonal(String [][] numberGrid){
-        BigInteger maxNum = new BigInteger("0");
+        BigInteger maxNum = BigInteger.ZERO;
 
         for(int i =0; i<=16; i++){
             for(int j=0; j<=16; j++){
@@ -107,7 +108,7 @@ public class Problem11 {
     }
 
     public static BigInteger generateBottomLeftDiagonal(String [][] numberGrid){
-        BigInteger maxNum = new BigInteger("0");
+        BigInteger maxNum = BigInteger.ZERO;
 
         for(int i =numberGrid.length-1; i>=3; i--){
             for(int j=0; j<=16; j++){

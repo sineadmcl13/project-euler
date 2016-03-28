@@ -12,9 +12,24 @@ import java.util.Set;
 public class Problem21 {
 
 	public static void main (String [] args){
-		long startTime = System.currentTimeMillis();
-		Set<Integer> amicableNumbers = new HashSet<Integer>();
+		System.out.println(problem21());
+	}
 
+	public static int problem21(){
+
+		Set<Integer> amicableNumbers = returnAmicableNumbers();
+
+		int sum=0;
+		for(int i: amicableNumbers){
+			sum+=i;
+		}
+
+		return sum;
+
+	}
+
+	private static Set<Integer> returnAmicableNumbers(){
+		Set<Integer> amicableNumbers = new HashSet<Integer>();
 		for(int i=200; i<=10000; i++){
 			int k=0;
 			for(int j : Factors.returnFactors(i)){
@@ -36,17 +51,7 @@ public class Problem21 {
 			}
 		}
 
-
-		int sum=0;
-
-		for(int i: amicableNumbers){
-			sum+=i;
-		}
-		System.out.println(sum);
-		long endTime   = System.currentTimeMillis();
-		long totalTime = endTime - startTime;
-		System.out.println(totalTime*0.001+" secs");
-
+		return amicableNumbers;
 	}
 
 }

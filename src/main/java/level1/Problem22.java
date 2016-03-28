@@ -14,52 +14,59 @@ import java.util.Collections;
 public class Problem22 {
 
 	public static void main(String [] args){
+		System.out.println(problem22());
+	}
 
-		ArrayList<String> listOfNames = new ArrayList<String>();
-		BigInteger totalNameScore = new BigInteger("0");
-		
+	public static BigInteger problem22(){
+		BigInteger totalNameScore = BigInteger.ZERO;
 
-		try (BufferedReader br = new BufferedReader(new FileReader("projectFiles/problem22.txt")))
-		{
- 
-			String fileOfNames;
-			String [] names = {};
-			while ((fileOfNames = br.readLine()) != null) {
-				//read in names and split them by commas
-				names = fileOfNames.split(",");
-			}
-			
-			//remove quotes from names and add to the arrayList
-			for(String s :names){
-				s = s.replaceAll("^\"|\"$", "");
-				listOfNames.add(s);
-			}
-			
-			//sort the names in alphabetical order
-			Collections.sort(listOfNames);
+        ArrayList<String> listOfNames = readListOfNames();
 
-			//for each name in the listOfNames, calculate its score and add to the total
-			
-			for (int i=0; i<listOfNames.size();i++){
-				int score = 0;
-//				System.out.println(listOfNames.get(i));
-				
-				for(char j : listOfNames.get(i).toCharArray()){
-					score += j-'A'+1;
-				}
-//				System.out.println(score);
-				int nameScore = score * (i+1);
-				
-				totalNameScore=totalNameScore.add(new BigInteger(String.valueOf(nameScore)));
-				
-			}
-			
-			System.out.println(totalNameScore);
+        //sort the names in alphabetical order
+        Collections.sort(listOfNames);
 
-		} catch (IOException e) {
-			e.printStackTrace();
-		} 
+        //for each name in the listOfNames, calculate its score and add to the total
+        for (int i=0; i<listOfNames.size();i++){
+            int score = 0;
+
+            for(char j : listOfNames.get(i).toCharArray()){
+                score += j-'A'+1;
+            }
+            int nameScore = score * (i+1);
+
+            totalNameScore=totalNameScore.add(BigInteger.valueOf(nameScore));
+
+        }
+
+        return totalNameScore;
 
 	}
+
+    public static ArrayList<String> readListOfNames(){
+        ArrayList<String> listOfNames = new ArrayList<String>();
+
+        try (BufferedReader br = new BufferedReader(new FileReader("projectFiles/problem22.txt"))) {
+
+            String fileOfNames;
+            String[] names = {};
+            while ((fileOfNames = br.readLine()) != null) {
+                names = fileOfNames.split(",");
+            }
+
+            //remove quotes from names and add to the arrayList
+            for (String s : names) {
+                s = s.replaceAll("^\"|\"$", "");
+                listOfNames.add(s);
+            }
+
+            return listOfNames;
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            return new ArrayList<String>();
+        }
+
+    }
+
 	
 }

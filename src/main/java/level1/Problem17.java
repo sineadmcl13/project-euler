@@ -1,7 +1,7 @@
 package level1;
 
 /**
- *  * https://projecteuler.net/problem=17
+ *  https://projecteuler.net/problem=17
  **/
 
 public class Problem17 {
@@ -14,13 +14,18 @@ public class Problem17 {
 	final static String thousand = "thousand";
 
 	public static void main (String [] args){
+		System.out.println(problem17());
+	}
 
+
+	public static int problem17(){
 		int count =0;
 		for(int i = 1; i<=1000; i++){
 			count+=getWord(i).length();
 		}
-		System.out.println(count);
+		return count;
 	}
+
 
 	public static String getWord(int i){
 		String count = "";
