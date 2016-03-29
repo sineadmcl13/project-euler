@@ -2,6 +2,7 @@ package functions;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Factors {
 
@@ -125,6 +126,45 @@ public class Factors {
             else a = mid.add(BigInteger.ONE);
         }
         return a.subtract(BigInteger.ONE);
+    }
+
+
+    /**
+     *
+     * @param numerator of fraction
+     * @param denominator of fraction
+     * @return an array of two integers which represents the numerator and denomiator of a
+     * fracton which is the fraction passed in as paramters in its lowest terms
+     */
+    public static int[] returnFractionLowestTerms(int numerator, int denominator){
+        int [] fraction = new int [2];
+
+        int maxFactor;
+        do{
+            maxFactor=0;
+            ArrayList<Integer> factorsNumerator = returnFactors(numerator);
+            factorsNumerator.add(numerator);
+            Collections.sort(factorsNumerator);
+
+            ArrayList<Integer> factorsDenominator = returnFactors(denominator);
+            factorsDenominator.add(denominator);
+            Collections.sort(factorsDenominator);
+
+            for(int i : factorsNumerator){
+                if(factorsDenominator.contains(i)){
+                    if(i>maxFactor){
+                        maxFactor=i;
+                    }
+                }
+            }
+            numerator=numerator/maxFactor;
+            denominator=denominator/maxFactor;
+        }while(maxFactor>1);
+
+        fraction[0]=numerator;
+        fraction[1]=denominator;
+
+        return fraction;
     }
 
 }
