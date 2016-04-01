@@ -3,7 +3,6 @@ package level2;
 import functions.NumberUtils;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -29,7 +28,6 @@ public class Problem40 {
         nums.add(0);
         for(Integer i =1; i<200000; i++){
             List<Integer> digits =NumberUtils.returnDigits(i);
-            Collections.reverse(digits);
             nums.addAll(digits);
         }
         return nums;

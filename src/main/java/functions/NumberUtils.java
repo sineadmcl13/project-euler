@@ -39,17 +39,25 @@ public class NumberUtils {
 
     /**
      *
+     * @param num
+     * @return arrayList of the digits contained in the number passed in as parameter
+     */
+    public static ArrayList<Integer> returnDigits(String num){
+        int size = num.length();
+        ArrayList<Integer> digits= new ArrayList<Integer>();
+        for(int i=0; i<size; i++){
+            digits.add(Integer.parseInt(num.substring(i,i+1)));
+        }
+        return digits;
+    }
+
+    /**
+     *
      * @param integer number
      * @return arrayList of the digits contained in the number passed in as parameter
      */
     public static ArrayList<Integer> returnDigits(int num){
-        int size = String.valueOf(num).length();
-        ArrayList<Integer> digits= new ArrayList<Integer>();
-        for(int i=0; i<size; i++){
-            digits.add(num%10);
-            num=num/10;
-        }
-        return digits;
+        return returnDigits(String.valueOf(num));
     }
 
 }

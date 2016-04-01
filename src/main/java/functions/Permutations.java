@@ -3,6 +3,7 @@ package functions;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.stream.Collectors;
 
 public class Permutations {
 
@@ -23,15 +24,10 @@ public class Permutations {
      * @return ArrayList<Long> of every possible permutation
      */
     public static ArrayList<Long> returnPermutations(Long num){
-        String numString = num.toString();
-        char [] numbers = numString.toCharArray();
 
-        ArrayList<String> temp = returnAllPermutations(numbers);
-        ArrayList<Long> permutations = new ArrayList<>();
-        for(String s : temp){
-            permutations.add(Long.valueOf(s));
+        char [] numbers = num.toString().toCharArray();
+        ArrayList<Long> permutations = returnAllPermutations(numbers).stream().map(Long::valueOf).collect(Collectors.toCollection(ArrayList::new));
 
-        }
         return permutations;
     }
 
@@ -123,4 +119,45 @@ public class Permutations {
     }
 
 
+
+    /**
+     *
+     * @param origNum the original number to be checked
+     * @param permutation the proposed permutation to be checked against the origNum
+     * @return true if the origNum and permutation are permutations of each other. Otherwise false is returned
+     */
+    public static boolean isPermutation(int origNum, int permutation){
+        String origString = String.valueOf(origNum);
+        String permutationString = String.valueOf(permutation);
+
+        return isPermutation(origString, permutationString);
+    }
+
+
+    /**
+     *
+     * @param origNum the original number to be checked
+     * @param permutation the proposed permutation to be checked against the origNum
+     * @return true if the origNum and permutation are permutations of each other. Otherwise false is returned
+     */
+    public static boolean isPermutation(String origNum, String permutation){
+        char [] origNumArray = origNum.toCharArray();
+        char [] permutationArray = permutation.toCharArray();
+
+        Arrays.sort(origNumArray);
+        Arrays.sort(permutationArray);
+
+        String origString ="";
+        for(char c : origNumArray){
+            origString+=c;
+        }
+
+        String permutationString ="";
+        for(char c : permutationArray){
+            permutationString=permutationString+c;
+        }
+
+        return origString.equals(permutationString);
+
+    }
 }
