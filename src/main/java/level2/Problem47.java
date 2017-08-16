@@ -54,7 +54,7 @@ public class Problem47 {
     }
 
 
-    public static Set<Integer> returnPrimeFactors(int num)    {
+    private static Set<Integer> returnPrimeFactors(int num)    {
         Set<Integer> factorsArray = new HashSet<Integer>();
 
         for(int i = num-1; i>= Math.sqrt(num)-1; i--){

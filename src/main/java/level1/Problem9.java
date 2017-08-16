@@ -19,8 +19,7 @@ public class Problem9 {
                 double c = Math.sqrt((a*a)+(b*b));
                 if(c==(int)c){
                     if(a+b+c==1000){
-                        long ans = a*b*(int)c;
-                        return ans;
+                        return a*b*(int)c;
 
                     }
                 }
