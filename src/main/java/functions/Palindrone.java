@@ -3,22 +3,17 @@ package functions;
 public class Palindrone {
 
 	/**
-	 * 
-	 * @param String original
-	 * @return true or false depending if the passed string is a palindrome 
+	 * Returns true or false depending if string passed in is the same when reveresed
+	 * @param value the string to be checked
+	 * @return boolean true or false
 	 */
-	public static boolean isPalindromic(String original){
-		
-		String reverse="";
-		for(int i=original.length()-1; i>=0; i--){
-			reverse=reverse+=original.charAt(i);
-		}	
-		if(original.equals(reverse)){
-			return true;
-		}else{
-			return false;
-		}
+	public static boolean isPalindromic(String value){
+		return value.equals(reverseString(value));
 	}
 
+
+	public static String reverseString(String value){
+		return new StringBuilder(value).reverse().toString();
+	}
 
 }
