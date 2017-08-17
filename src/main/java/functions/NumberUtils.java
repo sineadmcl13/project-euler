@@ -53,11 +53,26 @@ public class NumberUtils {
 
     /**
      *
-     * @param integer number
+     * @param num
      * @return arrayList of the digits contained in the number passed in as parameter
      */
     public static ArrayList<Integer> returnDigits(int num){
         return returnDigits(String.valueOf(num));
     }
 
+
+    /**
+     *
+     * @param num
+     * @return an integer that is the sum of the digits in the provided string number
+     */
+    public static int returnDigitSum(String num){
+        int score = 0;
+
+        for(int i =0; i<num.length(); i++){
+            score += Integer.parseInt(num.substring(i, i + 1));
+        }
+
+        return score;
+    }
 }

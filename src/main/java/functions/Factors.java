@@ -3,6 +3,9 @@ package functions;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class Factors {
 
@@ -107,6 +110,43 @@ public class Factors {
     }
 
 
+    /**
+     *
+     * @param number
+     * @param primeList
+     * @return a set of the prime factors of the number that has been provided
+     */
+    public static Set<Double> returnPrimeFactors(int number, List<Integer> primeList){
+
+        Set<Double> primeFactors = new HashSet<>();
+
+        int temp = number;
+
+        do {
+            //find next prime factor
+            int nextFactor = findNextPrimeFactor(temp, primeList);
+            primeFactors.add((double)nextFactor);
+            temp = temp/nextFactor;
+
+        }
+        while (!Factors.isPrime(temp));
+
+        primeFactors.add((double)temp);
+
+        return primeFactors;
+    }
+
+
+    private static int findNextPrimeFactor(int temp, List<Integer> primeList){
+        for(int i =2; i<temp; i++){
+            if(temp%primeList.get(i)==0){
+                return primeList.get(i);
+            }
+        }
+        return temp;
+    }
+
+
     public static BigInteger returnFactorialOfNum(int num){
         BigInteger sum = BigInteger.ONE;
 
@@ -117,16 +157,6 @@ public class Factors {
         return sum;
     }
 
-    public static BigInteger sqrt(BigInteger n) {
-        BigInteger a = BigInteger.ONE;
-        BigInteger b = new BigInteger(n.shiftRight(5).add(new BigInteger("8")).toString());
-        while(b.compareTo(a) >= 0) {
-            BigInteger mid = new BigInteger(a.add(b).shiftRight(1).toString());
-            if(mid.multiply(mid).compareTo(n) > 0) b = mid.subtract(BigInteger.ONE);
-            else a = mid.add(BigInteger.ONE);
-        }
-        return a.subtract(BigInteger.ONE);
-    }
 
 
     /**

@@ -3,6 +3,7 @@ package functions;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class Permutations {
@@ -31,6 +32,15 @@ public class Permutations {
         return permutations;
     }
 
+    /**
+     * @param num String
+     * @return ArrayList<String> of every possible permutation
+     */
+    public static List<String> returnPermutations(String num){
+        char [] numbers = num.toCharArray();
+
+        return returnAllPermutations(numbers);
+    }
 
     /**
      *
@@ -149,7 +159,7 @@ public class Permutations {
 
         String origString ="";
         for(char c : origNumArray){
-            origString+=c;
+            origString += c;
         }
 
         String permutationString ="";
